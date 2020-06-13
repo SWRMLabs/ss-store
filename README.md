@@ -16,5 +16,5 @@ the database used underneath so we can have a uniform API to use for clients
 
 ## Usage
 ```
-import "github.com/ipfs/go-ipfs-exchange-interface"
+import "github.com/StreamSpace/ss-store"
 ```
