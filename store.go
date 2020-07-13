@@ -34,8 +34,6 @@ type (
 	// Item is a generic object which can be used to interact with the store.
 	// Users can create their own 'Item' for using the store
 	Item interface {
-		Serializable
-
 		GetNamespace() string
 		GetId() string
 	}
