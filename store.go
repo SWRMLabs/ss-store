@@ -26,7 +26,7 @@ type (
 		Read(Item) error
 		Update(Item) error
 		Delete(Item) error
-		List(Items, ListOpt) (int, error)
+		List(Factory, ListOpt) (int, Items, error)
 
 		io.Closer
 	}
@@ -57,6 +57,20 @@ type (
 		Limit   int64
 		Sort    Sort
 		Version int64
+		Filters Filter
+	}
+
+	SerializedItem interface {
+		Item
+		Serializable
+	}
+
+	Factory interface {
+		Factory() SerializedItem
+	}
+
+	Filter interface {
+		Compare(SerializedItem) bool
 	}
 
 	// TimeTracker interface implements basic time tracking functionality
