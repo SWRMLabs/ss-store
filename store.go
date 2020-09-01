@@ -1,6 +1,7 @@
 package store
 
 import (
+	"errors"
 	"io"
 )
 
@@ -16,6 +17,8 @@ const (
 	// SortUpdatedAsc updated oldest to newset
 	SortUpdatedAsc
 )
+
+var ErrRecordNotFound = errors.New("record not found")
 
 type (
 	// Store is a generic KV Store interface which provides an easier
