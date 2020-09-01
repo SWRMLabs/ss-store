@@ -29,7 +29,7 @@ type (
 		Read(Item) error
 		Update(Item) error
 		Delete(Item) error
-		List(Factory, ListOpt) (int, Items, error)
+		List(Factory, ListOpt) (Items, error)
 
 		io.Closer
 	}
