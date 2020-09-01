@@ -60,7 +60,7 @@ type (
 		Limit   int64
 		Sort    Sort
 		Version int64
-		Filters Filter
+		Filter Filter
 	}
 
 	SerializedItem interface {
