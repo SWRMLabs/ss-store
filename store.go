@@ -3,6 +3,7 @@ package store
 import (
 	"errors"
 	"io"
+	
 )
 
 const (
@@ -60,7 +61,7 @@ type (
 		Limit   int64
 		Sort    Sort
 		Version int64
-		Filter Filter
+		Filter 	ItemFilter
 	}
 
 	SerializedItem interface {
@@ -72,7 +73,7 @@ type (
 		Factory() SerializedItem
 	}
 
-	Filter interface {
+	ItemFilter interface {
 		Compare(SerializedItem) bool
 	}
 
