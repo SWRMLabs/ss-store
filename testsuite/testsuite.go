@@ -3,6 +3,9 @@ package store_testsuite
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
+	"runtime"
+	"strings"
 	"testing"
 	"time"
 
@@ -84,7 +87,11 @@ type runner struct {
 
 func (r *runner) run(tests ...implTest) {
 	for _, t := range tests {
+		tName := runtime.FuncForPC(reflect.ValueOf(t).Pointer()).Name()
+		tArr := strings.Split(tName, ".")
+		fmt.Printf("\t== Running %s\n", tArr[len(tArr)-1])
 		t(r.t, r.s)
+		fmt.Printf("\t== Passed  %s\n", tArr[len(tArr)-1])
 	}
 }
 
