@@ -1,4 +1,4 @@
-module github.com/StreamSpace/ss-store
+module github.com/SWRMLabs/ss-store
 
 go 1.14
 

@@ -11,10 +11,10 @@ the database used underneath so we can have a uniform API to use for clients
 `ss-store` works like a regular Go module:
 
 ```
-> go get github.com/StreamSpace/ss-store
+> go get github.com/SWRMLabs/ss-store
 ```
 
 ## Usage
 ```
-import "github.com/StreamSpace/ss-store"
+import "github.com/SWRMLabs/ss-store"
 ```

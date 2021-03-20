@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	store "github.com/StreamSpace/ss-store"
+	store "github.com/SWRMLabs/ss-store"
 	"github.com/google/uuid"
 )
 

@@ -3,7 +3,6 @@ package store
 import (
 	"errors"
 	"io"
-	
 )
 
 const (
@@ -61,7 +60,7 @@ type (
 		Limit   int64
 		Sort    Sort
 		Version int64
-		Filter 	ItemFilter
+		Filter  ItemFilter
 	}
 
 	SerializedItem interface {
