@@ -104,7 +104,7 @@ func TestNilStore(t *testing.T, s store.Store) {
 func TestSimpleCRUD(t *testing.T, s store.Store) {
 	// Create new object
 	d := &testStruct{
-		Namespace: "StreamSpace",
+		Namespace: "SS",
 		Id:        "04791e92-0b85-11ea-8d71-362b9e155667",
 		RandStr:   "totally random",
 	}
@@ -114,7 +114,7 @@ func TestSimpleCRUD(t *testing.T, s store.Store) {
 	}
 	// Read object and verify contents
 	nd := &testStruct{
-		Namespace: "StreamSpace",
+		Namespace: "SS",
 		Id:        "04791e92-0b85-11ea-8d71-362b9e155667",
 	}
 	err = s.Read(nd)
@@ -220,6 +220,9 @@ func TestSortCreatedAscLIST(t *testing.T, s store.Store) {
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
+	if len(ds) != 5 {
+		t.Fatal("Invalid no of entries", len(ds))
+	}
 	var created int64 = 0
 	for i := 0; i < len(ds); i++ {
 		if ds[i].(store.TimeTracker).GetCreated() < created {
@@ -239,6 +242,9 @@ func TestSortCreatedDscLIST(t *testing.T, s store.Store) {
 	ds, err := s.List(&testFactory{}, opts)
 	if err != nil {
 		t.Fatalf(err.Error())
+	}
+	if len(ds) != 5 {
+		t.Fatal("Invalid no of entries", len(ds))
 	}
 	var created int64 = 0
 	for i := 0; i < len(ds); i++ {
@@ -260,6 +266,9 @@ func TestSortUpdatedAscLIST(t *testing.T, s store.Store) {
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
+	if len(ds) != 5 {
+		t.Fatal("Invalid no of entries", len(ds))
+	}
 	var updated int64 = 0
 	for i := 0; i < len(ds); i++ {
 		if ds[i].(store.TimeTracker).GetUpdated() < updated {
@@ -279,6 +288,9 @@ func TestSortUpdatedDscLIST(t *testing.T, s store.Store) {
 	ds, err := s.List(&testFactory{}, opts)
 	if err != nil {
 		t.Fatalf(err.Error())
+	}
+	if len(ds) != 5 {
+		t.Fatal("Invalid no of entries", len(ds))
 	}
 	var updated int64 = 0
 	for i := 0; i < len(ds); i++ {
